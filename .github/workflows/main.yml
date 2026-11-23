@@ -1,0 +1,25 @@
+
+name: Simple CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Display repository information
+        run: echo "Repository checkout successful"
+
+      - name: Check README file
+        run: test -f README.md
+
+      - name: Display success message
+        run: echo "CI workflow completed successfully"
